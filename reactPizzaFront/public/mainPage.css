@@ -228,12 +228,17 @@ img.small {
     position: absolute;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .ordering__modal .modal__content {
     position: relative;
     max-width: 800px;
     display: block;
     margin: 0 auto;
     background: #fff;
+    overflow: scroll;
     border-radius: 30px;
     padding: 50px 30px;
     z-index: 10;
@@ -242,7 +247,7 @@ img.small {
 
 .positioning {
     position: relative;
-    top: 30%;
+    top: 10%;
     max-width: 50%;
     margin: 0 auto;
 }
@@ -253,6 +258,12 @@ img.small {
     margin-top: 10px;
     font-weight: 400;
     font-size: 14px;
+}
+
+.modal__content .error_message {
+    font-size: 10px;
+    color: #d52f3b;
+    font-weight: 500;
 }
 
 .modal__content input, .modal__content textarea {

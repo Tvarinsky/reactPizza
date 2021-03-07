@@ -6,12 +6,15 @@ import {useTransition, animated} from 'react-spring'
 import { CartContext } from './context/CartContext'
 import { PromoContext } from './context/PromoContext'
 import { useRouter } from 'next/router'
+import * as Yup from 'yup'; 
 
 function OrderModal() {
     const router = useRouter()
     const { modal, setModal, isOpen, setOpen } = useContext(ModalContext);
     const { cartItems, setCartItems } = useContext(CartContext);
     const { promo, setInput, discount, setDiscount, freeItem, setFreeItem } = useContext(PromoContext);
+
+    const [error, setError] = useState(false);
 
     const handleRemove = () => {
         let countCopy = [...cartItems];
@@ -25,9 +28,18 @@ function OrderModal() {
 
     const formik = useFormik({
     initialValues: {
+        name: '',
+        phone: '',
         street: '',
-        house: '',
+        house: ''
     },
+    validationSchema: Yup.object().shape({
+        name: Yup.string().required('Обязательное поле'),
+        phone: Yup.string().required('Обязательное поле'),
+        street: Yup.string().required('Обязательное поле'),
+        house: Yup.string().required('Обязательное поле')
+    }),
+
     onSubmit: async (values) => {
         await axios({
             method: 'POST',
@@ -41,6 +53,7 @@ function OrderModal() {
     },
     });
 
+
     const transition = useTransition(  isOpen, null, {
       from: { transform: 'scale(0.8)' },
       enter: { transform: 'scale(1)' },
@@ -49,7 +62,15 @@ function OrderModal() {
         duration: 75,
       },
     })
-    
+
+    const inputError = '';
+
+    function validateInput(value) {
+        if (value === '') {
+            inputError = 'Nice try!';
+        }
+    }
+
     return (
             <div className="ordering__modal">
 
@@ -89,17 +110,29 @@ function OrderModal() {
                         id="name"
                         name="name"
                         type="text"
+                        style={formik.errors.name && {border: '1px solid #d52f3b'}}
+                        validate={validateInput}
                         onChange={formik.handleChange}
                         />
+
+                        {formik.errors.name && formik.touched.name && (
+                            <p className="error_message">{formik.errors.name}</p>
+                        )}
                     </div>
                     <div class="col-lg-4 col-xs-2">
-                        <label htmlFor="email">E-Mail</label>
+                        <label htmlFor="email">Телефон</label>
                         <input
-                        id="email"
-                        name="email"
-                        type="email"
+                        id="phone"
+                        name="phone"
+                        type="phone"
+                        style={formik.errors.phone && {border: '1px solid #d52f3b'}}
+                        validate={validateInput}
                         onChange={formik.handleChange}
                         />
+                        
+                        {formik.errors.phone && formik.touched.phone && (
+                            <p className="error_message">{formik.errors.phone}</p>
+                        )}
                     </div>
                 </div>
                 <div class="col-lg-12 col-xs-12 row">
@@ -109,17 +142,29 @@ function OrderModal() {
                         id="street"
                         name="street"
                         type="text"
+                        style={formik.errors.street && {border: '1px solid #d52f3b'}}
+                        validate={validateInput}
                         onChange={formik.handleChange}
                         />
+
+                        {formik.errors.street && formik.touched.street && (
+                            <p className="error_message">{formik.errors.street}</p>
+                        )}
                     </div>
                     <div class="col-lg-2 col-xs-2">
                         <label htmlFor="house">Дом</label>
                         <input
                         id="house"
                         name="house"
+                        style={formik.errors.house && {border: '1px solid #d52f3b'}}
                         type="text"
+                        validate={validateInput}
                         onChange={formik.handleChange}
                         />
+
+                        {formik.errors.house && formik.touched.house && (
+                            <p className="error_message">{formik.errors.house}</p>
+                        )}
                     </div>
                 </div>
                 <div class="col-lg-12 col-xs-12 row">

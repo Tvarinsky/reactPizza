@@ -596,9 +596,6 @@
           "name": {
             "type": "string"
           },
-          "email": {
-            "type": "string"
-          },
           "street": {
             "type": "string"
           },
@@ -715,6 +712,9 @@
           },
           "orderTotal": {
             "type": "number"
+          },
+          "phone": {
+            "type": "string"
           }
         }
       },
@@ -723,9 +723,6 @@
           "name": {
             "type": "string"
           },
-          "email": {
-            "type": "string"
-          },
           "street": {
             "type": "string"
           },
@@ -842,6 +839,9 @@
           },
           "orderTotal": {
             "type": "number"
+          },
+          "phone": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

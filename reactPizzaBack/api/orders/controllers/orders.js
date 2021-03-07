@@ -47,7 +47,7 @@ module.exports = {
 
         await strapi.query('orders').create({
             name: ctx.request.body.values.name,
-            email: ctx.request.body.values.email,
+            phone: ctx.request.body.values.phone,
             street: ctx.request.body.values.street,
             appartment: ctx.request.body.values.appartment,
             entrance: ctx.request.body.values.entrance,

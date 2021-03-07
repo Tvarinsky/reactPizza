@@ -14,9 +14,6 @@
     "name": {
       "type": "string"
     },
-    "email": {
-      "type": "email"
-    },
     "street": {
       "type": "string"
     },
@@ -46,6 +43,9 @@
     },
     "orderTotal": {
       "type": "decimal"
+    },
+    "phone": {
+      "type": "string"
     }
   }
 }
