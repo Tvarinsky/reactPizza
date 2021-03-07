@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "street": {
+      "type": "string"
+    },
+    "house": {
+      "type": "integer"
+    },
+    "appartment": {
+      "type": "integer"
+    },
+    "entrance": {
+      "type": "integer"
+    },
+    "intercom": {
+      "type": "integer"
+    },
+    "floor": {
+      "type": "integer"
+    },
+    "comment": {
+      "type": "richtext"
+    },
+    "order_details": {
+      "type": "dynamiczone",
+      "components": [
+        "order-products.products"
+      ]
+    },
+    "orderTotal": {
+      "type": "decimal"
+    }
+  }
+}

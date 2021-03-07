@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/slider-promos",
+      "handler": "slider-promo.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/slider-promos/count",
+      "handler": "slider-promo.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/slider-promos/:id",
+      "handler": "slider-promo.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/slider-promos",
+      "handler": "slider-promo.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/slider-promos/:id",
+      "handler": "slider-promo.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/slider-promos/:id",
+      "handler": "slider-promo.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

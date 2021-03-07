@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slider_promos",
+  "info": {
+    "name": "sliderPromo"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "sliderMedia": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

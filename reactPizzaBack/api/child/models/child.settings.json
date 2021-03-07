@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "children",
+  "info": {
+    "name": "Child",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "childName": {
+      "type": "string"
+    },
+    "childPhoto": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "childPhotos": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "childAbout": {
+      "type": "richtext"
+    },
+    "childPrice": {
+      "type": "decimal"
+    },
+    "childSlug": {
+      "type": "string"
+    },
+    "childKalorii": {
+      "type": "string"
+    },
+    "childJiry": {
+      "type": "string"
+    },
+    "childBelki": {
+      "type": "string"
+    },
+    "childYglevody": {
+      "type": "string"
+    },
+    "childSize": {
+      "type": "component",
+      "repeatable": true,
+      "component": "pizza-size.child-size"
+    },
+    "Toppingi": {
+      "type": "component",
+      "repeatable": true,
+      "component": "topping.toppings"
+    },
+    "category": {
+      "via": "children",
+      "model": "categories"
+    }
+  }
+}

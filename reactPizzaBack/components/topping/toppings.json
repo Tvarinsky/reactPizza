@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_topping_toppings",
+  "info": {
+    "name": "Toppings",
+    "icon": "hamburger"
+  },
+  "options": {},
+  "attributes": {
+    "toppingPhoto": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "toppingName": {
+      "type": "string"
+    },
+    "toppingPrice": {
+      "type": "integer"
+    }
+  }
+}

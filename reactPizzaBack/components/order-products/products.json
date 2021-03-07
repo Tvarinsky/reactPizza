@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_order_products_products",
+  "info": {
+    "name": "products",
+    "icon": "radiation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "children": {
+      "collection": "child"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "toppings": {
+      "type": "string"
+    }
+  }
+}

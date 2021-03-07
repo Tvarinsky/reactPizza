@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promocodes",
+  "info": {
+    "name": "promocode",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "promocode": {
+      "type": "string"
+    },
+    "freeProduct": {
+      "model": "child"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "discount",
+        "freeproduct"
+      ]
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "usesRemain": {
+      "type": "integer"
+    },
+    "lifeTime": {
+      "type": "date"
+    }
+  }
+}

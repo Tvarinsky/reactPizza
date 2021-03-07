@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_pizza_size_child_sizes",
+  "info": {
+    "name": "childSize",
+    "icon": "pizza-slice",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "price": {
+      "type": "decimal"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "big"
+      ]
+    }
+  }
+}
